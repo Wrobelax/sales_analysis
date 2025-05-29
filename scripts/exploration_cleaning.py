@@ -6,7 +6,7 @@ Some lines with code are commented as they were used solely for analysis and lef
 import pandas as pd
 
 # Importing initial data and loading to DataFrame
-url = 'https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/master/data/data.csv'
+url = 'https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/main/data/data.csv'
 df = pd.read_csv(url, encoding ='ISO-8859-1')
 
 

@@ -11,7 +11,7 @@ sns.set(style = "whitegrid")
 
 
 # Importing file with cleaned data.
-df = pd.read_csv("https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/master/data/cleaned_data.csv",
+df = pd.read_csv("https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/main/data/cleaned_data.csv",
                  encoding = "ISO-8859-1", dtype = {"InvoiceNo" : str})
 
 
@@ -69,7 +69,7 @@ plt.title("Orders per month")
 plt.xlabel("Month")
 plt.ylabel("Unique orders")
 plt.tight_layout()
-# plt.savefig("data/orders_per_mth.png") # Saving results to file
+# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_mth.png") # Saving results to file
 
 # Hourly orders.
 df["Hour"] = df["InvoiceDate"].dt.hour
@@ -82,7 +82,7 @@ plt.title("Orders per hour")
 plt.xlabel("Hour")
 plt.ylabel("Unique orders")
 plt.tight_layout()
-# plt.savefig("data/orders_per_hr.png") # Saving results to file
+# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_hr.png") # Saving results to file
 
 # Orders per country.
 countries = df.groupby("Country")["InvoiceNo"].nunique().sort_values(ascending = False).head(10)
@@ -95,5 +95,5 @@ plt.xlabel("Country")
 plt.ylabel("Unique orders")
 plt.xticks(rotation = 45)
 plt.tight_layout()
-plt.show()
-# plt.savefig("data/orders_per_country.png") # Saving results to file
+# plt.show() # Unncomment to show plots.
+# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_country.png") # Saving results to file
