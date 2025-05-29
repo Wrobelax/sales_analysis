@@ -1,4 +1,7 @@
-"""File importing dataset, exploring it and preparing data for use."""
+"""
+File importing dataset, exploring it and preparing data for use.
+Some lines with code are commented as they were used solely for analysis and left for reference.
+"""
 
 import pandas as pd
 
@@ -8,7 +11,7 @@ df = pd.read_csv(url, encoding ='ISO-8859-1')
 
 
 """Data exploration."""
-# # Exploring data.
+# # Exploring data to asses what needs to be cleaned.
 # print(df.info()) # 541909 rows in total.
 # print(df.isnull().sum()) # CustomerID column almost empty, Description column missing 1454 entries.
 # print(df['InvoiceDate'].dtype) # Date is object, requires conversion.
