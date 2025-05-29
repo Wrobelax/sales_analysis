@@ -10,6 +10,7 @@ url = 'https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/main
 df = pd.read_csv(url, encoding ='ISO-8859-1')
 
 
+
 """Data exploration."""
 # # Exploring data to asses what needs to be cleaned.
 # print(df.info()) # 541909 rows in total.
@@ -21,9 +22,11 @@ df = pd.read_csv(url, encoding ='ISO-8859-1')
 # print(df[df["UnitPrice"] <= 0]) # 2517 rows with unit price <= 0. To be removed.
 # print(df.duplicated().sum()) # 5268 duplicated entries. To be removed.
 
+
 # # Checking unique data.
 # print(df["Description"].unique()) # All written in caps, potential trailing spaces, special characters.
 # print(df["Country"].unique()) # Mix of capitalized and all caps (USA,RPA).
+
 
 
 """Data cleaning, filling, converting and removing."""
@@ -34,6 +37,7 @@ df["Description"] = df["Description"].str.replace("[^a-zA-Z0-9 ]", "", regex = T
 
 df["Country"] = df["Country"].str.strip() # Removing trailing spaces.
 df["Country"] = df["Country"].str.lower()# Lowering Letters.
+
 
 # Filling empty data.
 df["Description"] = df["Description"].fillna("missing")

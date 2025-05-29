@@ -11,8 +11,9 @@ sns.set(style = "whitegrid")
 
 
 # Importing file with cleaned data.
-df = pd.read_csv("https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/main/data/cleaned_data.csv",
-                 encoding = "ISO-8859-1", dtype = {"InvoiceNo" : str})
+url = "https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs/heads/main/data/cleaned_data.csv"
+df = pd.read_csv(url, encoding = "ISO-8859-1", dtype = {"InvoiceNo" : str})
+
 
 
 """Data exploration/analysis"""
@@ -20,17 +21,21 @@ df = pd.read_csv("https://raw.githubusercontent.com/Wrobelax/sales_analysis/refs
 # print(df["Description"].nunique()) # 4005 unique descriptions.
 # print(df["Country"].nunique()) # 38 unique countries.
 
+
 # Checking top-selling products.
 # print(df.groupby("Description")["Quantity"].sum().sort_values(ascending = False).head(10))
 # Three top-selling products: "paper craft  little birdie", "medium ceramic top storage jar", "world war 2 gliders asstd designs".
+
 
 # Couniting income, average price, looking for trends.
 df["TotalPrice"] = df["Quantity"] * df["UnitPrice"]
 # print(df["TotalPrice"].sum()) # Total income 10642110.804.
 # print(df.groupby("Country")["TotalPrice"].sum().sort_values(ascending = False)) # Total income per country. Top three: UK, Netherlands, Ireland (Eire).
 
+
 # Average order price.
 # print(df.groupby("InvoiceNo")["TotalPrice"].sum().mean()) # Average order price is around 533.
+
 
 # Trends seeking by time.
 df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"]) # Changing date type.
@@ -39,10 +44,12 @@ df["DayName"] = df["InvoiceDate"].dt.day_name()
 # print(df.groupby("Month")["TotalPrice"].sum()) # Greatest sales are in November and December. Lowest in February and April.
 # print(df.groupby("DayName")["TotalPrice"].sum()) # Sales are pretty stable across days of week. Greatest sales in Tuesday and Thursday. Lowest in Sunday.
 
+
 # Checking clients.
 # print(df["CustomerID"].nunique()) # 4339 Unique customer IDs. There is a group of missing IDs categorized as "missing".
 # print(df.groupby("CustomerID")["TotalPrice"].sum().sort_values(ascending = False).head(10))
 # "Missing" IDs produce the greatest income. Top three identified customers producing the greatest income: 14646, 18102, 17450.
+
 
 
 """Basic visualisation"""
@@ -58,6 +65,7 @@ plt.ylabel("Product description")
 plt.tight_layout()
 # plt.savefig("data/most_purchased_prod.png")
 
+
 # Orders per month.
 df["Month"] = df["InvoiceDate"].dt.to_period("M").astype(str)
 monthly_orders = df.groupby("Month")["InvoiceNo"].nunique().sort_index()
@@ -71,6 +79,7 @@ plt.ylabel("Unique orders")
 plt.tight_layout()
 # plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_mth.png") # Saving results to file
 
+
 # Hourly orders.
 df["Hour"] = df["InvoiceDate"].dt.hour
 hourly_orders = df.groupby("Hour")["InvoiceNo"].nunique().sort_index()
@@ -83,6 +92,7 @@ plt.xlabel("Hour")
 plt.ylabel("Unique orders")
 plt.tight_layout()
 # plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_hr.png") # Saving results to file
+
 
 # Orders per country.
 countries = df.groupby("Country")["InvoiceNo"].nunique().sort_values(ascending = False).head(10)
