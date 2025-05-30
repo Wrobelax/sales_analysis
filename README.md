@@ -26,3 +26,5 @@ _Folder "outputs" covers charts resulted of analysis:_
 - "average_sale.png" : Histograph showing average order values.
 - "product_per_order.png" : Histograph showing number of products per order.
 - "sale_per_client.png" : Histograph showing average basket value per client.
+- "sales_top_10.png" : Heatmap showing sales per country. Removed UK as it was a significant outlier. Covered separately in "sales_uk.png".
+- "sales_uk.png" : Bar chart showing sales per month for UK only as an outlier.

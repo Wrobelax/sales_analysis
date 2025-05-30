@@ -62,18 +62,36 @@ plt.tight_layout()
 # plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/product_per_order.png") # Saving results to file
 
 
-#Visualisation of sales basing on month and country - limited to top 10.
+# Visualisation of sales basing on month and country - Separated UK and top 10 countries.
 df["Month"] = df["InvoiceDate"].dt.to_period("M").astype(str)
-p_table = df.pivot_table(index = "Country", columns = "Month", values = "TotalPrice", aggfunc = "sum").fillna(0)
-top_countries = p_table.sum(axis = 1).sort_values(ascending = False).head(10).index
-p_table = p_table.loc[top_countries]
 
-p_table_log = np.log1p(p_table) # Using log scale to add 1 and avoid log(0)
+df_other = df[df["Country"] != "united kingdom"]
+
+top_other = df_other.groupby("Country")["TotalPrice"].sum().sort_values(ascending = False).head(10).index
+df_other_top = df_other[df_other["Country"].isin(top_other)]
+other_pivot = df_other_top.pivot_table(index = "Country", columns = "Month", values = "TotalPrice", aggfunc = "sum").fillna(0)
+
+other_table_log = np.log1p(other_pivot) # Using log scale to add 1 and avoid log(0)
 
 plt.figure(figsize = (12,6))
-sns.heatmap(p_table, cmap = "YlGnBu", linewidths = 0.5, annot = True, fmt = ".1f")
-plt.title("Sales per Country/Month")
+sns.heatmap(other_table_log, cmap = "YlGnBu", linewidths = 0.5, annot = True, fmt = ".1f")
+plt.title("Sales per Country/Month - top 10")
 plt.xlabel("Month")
 plt.ylabel("Country")
 plt.tight_layout()
-plt.show()
+# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/sales_top_10.png") # Saving results to file
+
+
+#Visualisation of sales basing on month and country - UK only.
+df_uk = df[df["Country"] == "united kingdom"]
+uk_monthly_sales = df_uk.groupby("Month")["TotalPrice"].sum().sort_index()
+
+plt.figure(figsize= (12,6))
+sns.barplot(x = uk_monthly_sales.index, y = uk_monthly_sales.values, palette = "Blues_d")
+
+plt.title("Sales per Country/Month - UK")
+plt.xlabel("Month")
+plt.ylabel("£")
+plt.xticks(rotation = 45)
+plt.tight_layout()
+# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/sales_uk.png") # Saving results to file
