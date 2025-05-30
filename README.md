@@ -4,7 +4,7 @@ This project is a data analysis of a publicly available data from:
 https://www.kaggle.com/datasets/carrie1/ecommerce-data
 
 
-The project consists of cleaning data, data analysis and data modeling. All data was pushed and managed on Github via Git bash.
+The project consists of cleaning data, data analysis and data modeling by using Pandas, Matplotlib, Seaborn or Numpy Python libraries as well as SQL queries. All data was pushed and managed on Github via Git bash.
 
 
 **Structure of the project is as follows**:
