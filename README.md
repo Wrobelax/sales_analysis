@@ -1,4 +1,4 @@
-**Project status**: _In progress_ - data visualisation phase.
+**Project status**: Completed - closed.
 
 This project is a data analysis of a publicly available data from: 
 https://www.kaggle.com/datasets/carrie1/ecommerce-data
