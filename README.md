@@ -9,15 +9,17 @@ The project consists of cleaning data, data analysis and data modeling. All data
 
 **Structure of the project is as follows**:
 
-_Folder "data" consists of files_:
+_Folder "data" consists of files:
 - "data.csv" : Input data
-- "cleaned_data.csv" : Data after cleaning. Script used for is in scripts/exploration_cleaning.py
+- "cleaned_data.csv" : Data after cleaning. Script used for is in scripts/exploration_cleaning.py.
+- "sales_data.db" : SQL database generated out of "sql_database.py" script. 
 
 
 _Folder "scripts" covers scripts written and used for the project. Some of the code was left commented for reference:_
 - "exploration_cleaning.py" : Script used for creation of the "cleaned_data.csv". Input data used from "data.csv" file. Removed unnecessary data, modified some data types and explored data for potential use.
 - "data_analysis.py" : Script using "cleaned_data.csv" file. Covers data analysis, further exploration and some basic visualisation.
-
+- "modeling.py" : Script for generating outcomes of analysis as charts. Used to generate most of them on the project.
+- "sql_database.py" : Script used for generating the SQL database "sales_data.db" and covering SQL queries.
 
 _Folder "outputs" covers charts resulted of analysis:_
 - "orders_per_country.png" : Bar chart covering top 10 countries by order volume. Generated from "data_analysis.py" script.

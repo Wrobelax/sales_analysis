@@ -57,4 +57,4 @@ df = df.drop_duplicates()
 
 
 # Saving cleared data to csv.
-df.to_csv("https://github.com/Wrobelax/sales_analysis/blob/e919a7b403f0477965f72d0d7b8525aea97ced49/data/cleaned_data.csv", index = False)
+df.to_csv("../data/cleaned_data.csv", index = False)

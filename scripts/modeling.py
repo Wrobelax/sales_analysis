@@ -1,3 +1,8 @@
+"""
+Script for data modeling and visualisation used for generating outputs.
+Some lines with code are commented as they were used solely for analysis and left for reference.
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -26,7 +31,7 @@ plt.xlabel("£")
 plt.ylabel("Frequency")
 plt.xlim(0,1000)
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/average_sale.png") # Saving results to file
+# plt.savefig("../outputs/average_sale.png") # Saving results to file
 
 
 # Visualisation of sales per client.
@@ -45,7 +50,7 @@ plt.xlabel("£")
 plt.ylabel("number of customers")
 plt.xlim(0,1000)
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/sale_per_client.png") # Saving results to file
+# plt.savefig("../outputs/sale_per_client.png") # Saving results to file
 
 
 # Visualisation of products per order.
@@ -59,7 +64,7 @@ plt.xlabel("Items")
 plt.ylabel("Frequency")
 plt.xlim(0,1000)
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/product_per_order.png") # Saving results to file
+# plt.savefig("../outputs/product_per_order.png") # Saving results to file
 
 
 # Visualisation of sales basing on month and country - Separated UK and top 10 countries.
@@ -79,7 +84,7 @@ plt.title("Sales per Country/Month - top 10")
 plt.xlabel("Month")
 plt.ylabel("Country")
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/sales_top_10.png") # Saving results to file
+# plt.savefig("../outputs/sales_top_10.png") # Saving results to file
 
 
 #Visualisation of sales basing on month and country - UK only.
@@ -94,4 +99,4 @@ plt.xlabel("Month")
 plt.ylabel("£")
 plt.xticks(rotation = 45)
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/sales_uk.png") # Saving results to file
+# plt.savefig("../outputs/sales_uk.png") # Saving results to file

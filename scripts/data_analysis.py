@@ -77,7 +77,7 @@ plt.title("Orders per month")
 plt.xlabel("Month")
 plt.ylabel("Unique orders")
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_mth.png") # Saving results to file
+# plt.savefig("../outputs/orders_per_mth.png") # Saving results to file
 
 
 # Hourly orders.
@@ -91,7 +91,7 @@ plt.title("Orders per hour")
 plt.xlabel("Hour")
 plt.ylabel("Unique orders")
 plt.tight_layout()
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_hr.png") # Saving results to file
+# plt.savefig("../outputs/orders_per_hr.png") # Saving results to file
 
 
 # Orders per country.
@@ -106,4 +106,4 @@ plt.ylabel("Unique orders")
 plt.xticks(rotation = 45)
 plt.tight_layout()
 # plt.show() # Unncomment to show plots.
-# plt.savefig("https://github.com/Wrobelax/sales_analysis.git/outputs/orders_per_country.png") # Saving results to file
+# plt.savefig("../outputs/orders_per_country.png") # Saving results to file
